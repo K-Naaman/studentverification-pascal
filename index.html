@@ -15,6 +15,7 @@
     <meta property="og:url" content="https://example.com/certificates">
     <title>Seafarer Certificate Verification</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
       body {
         font-family: Arial Rounded, sans-serif;
@@ -284,6 +285,7 @@
         transform: scale(1.1);
       }
     </style>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -449,10 +451,30 @@
         </table>
         <!-- Add a button for downloading all certificates -->
         <div class="text-center mt-4">
-          <a href="all-certificates.zip" download class="btn btn-success"> Download All Certificates </a>
+          <button id="downloadButton" class="btn btn-success">Download All Certificates</button>
         </div>
-      </div>
-    </div>
+        
+        <script>
+          document.getElementById('downloadButton').addEventListener('click', () => {
+            const files = [
+              'all-certificates1.zip',
+              'all-certificates2.zip'
+            ];
+        
+            // Use a delay to ensure both downloads trigger properly
+            files.forEach((file, index) => {
+              setTimeout(() => {
+                const link = document.createElement('a');
+                link.href = file;
+                link.download = file.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }, index * 500); // 500ms delay between downloads
+            });
+          });
+        </script>
+        
     <!-- Modal -->
 <div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl"> <!-- Use modal-xl for larger modal -->
