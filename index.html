@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download certificates for Mr. PASCAL Andrea Mbogho, including Able Seafarer Deck and Basic Safety Training.">
+    <meta name="description" content="Download certificates for Mr. Pascal  Mbogho Andrea, including Able Seafarer Deck and Basic Safety Training.">
     <meta name="keywords" content="Certificates, Able Seafarer Deck, Basic Safety Training, ASTG Certificates">
     <meta name="author" content="ASTG">
-    <title>PASCAL Andrea Mbogho | Certificate Portal</title>
+    <title>Pascal  Mbogho Andrea | Certificate Portal</title>
     <!-- Social Media Preview -->
-    <meta property="og:title" content="Pascal Andrea Mbogho | Certificate Portal">
+    <meta property="og:title" content="Pascal  Mbogho Andrea | Certificate Portal">
     <meta property="og:description" content="Easily download all your certificates, including Able Seafarer Deck and Basic Safety Training.">
-    <meta property="og:image" content="astg-pascal_photo-nobg.png">
+    <meta property="og:image" content="astg-PASCAL_photo-nobg.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://example.com/certificates">
     <title>Seafarer Certificate Verification</title>
@@ -368,8 +368,8 @@
     <div class="container">
       <div class="certificates">
         <section id="certificates" class="mt-5" style="display: flex; align-items: center; gap: 20px;">
-          <p style="flex: 1;">This certifies that <b> Mr. Pascal Andrea Mbogho </b> has successfully completed and received the following certificates from ASTG </p>
-          <img src="astg-pascal_photo-nobg.png" alt="Mr. Pascal Andrea Mbogho" width="200" height="250" style="border-radius: 8px;">
+          <p style="flex: 1;">This certifies that <b> Mr. Pascal  Mbogho Andrea </b> has successfully completed and received the following certificates from ASTG </p>
+          <img src="astg-PASCAL_photo-nobg.png" alt="Mr. Pascal  Mbogho Andrea" width="200" height="250" style="border-radius: 8px;">
         </section>
         <h2 class="mb-4 text-center">Certificates Of Proficiency (COP)</h2>
         <table class="table table-bordered">
@@ -438,6 +438,15 @@
               </td>
             </tr>
             <tr>
+                <td>6</td>
+                <td>FIRE PREVENTION AND FIRE FIGHTING</td>
+                <td>DECEMBER 2023</td>
+                <td>4th DECEMBER 2028</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#certificateModal" data-certificate="FIRE PREVENTION AND FIRE FIGHTING-PASCAL.jpg">View</button>
+                </td>
+              </tr>
+            <tr>
               <td>7</td>
               <td>HYDROGEN SULPHIDE SAFETY(H2S)</td>
               <td>DECEMBER 2023</td>
@@ -445,6 +454,51 @@
               <td>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#certificateModal" data-certificate="HYDROGEN SULPHIDE SAFETY(H2S)-PASCAL.jpg">View</button>
               </td>
+              <tr>
+                <td>8</td>
+                <td>PERSONAL SAFETY AND SOCIAL RESPONSIBILITIES</td>
+                <td>DECEMBER 2023</td>
+                <td>4th DECEMBER 2028</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#certificateModal" data-certificate="PERSONAL SAFETY AND SOCIAL RESPONSIBILITIES-PASCAL.jpg">View</button>
+                </td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>PERSONAL SURVIVAL TECHNIQUES</td>
+                <td>DECEMBER 2023</td>
+                <td>NO EXPIRY</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#certificateModal" data-certificate="PERSONAL SURVIVAL TECHNIQUES-PASCAL.jpg">View</button>
+                </td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>PROFICIENCY IN SURVIVAL CRAFT AND RESCUE BOATS</td>
+                <td>DECEMBER 2023</td>
+                <td>4th DECEMBER 2028</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#certificateModal" data-certificate="PROFICIENCY IN SURVIVAL CRAFT AND RESCUE BOATS-PASCAL.jpg">View</button>
+                </td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>SECURITY AWARENESS TRAINING</td>
+                <td>DECEMBER 2023</td>
+                <td>NO EXPIRY</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#certificateModal" data-certificate="SECURITY AWARENESS TRAINING-PASCAL.jpg">View</button>
+                </td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>RATING FORMING PART OF NAVIGATIONAL WATCH</td>
+                <td>DECEMBER 2023</td>
+                <td>4th DECEMBER 2028</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#certificateModal" data-certificate="RATING FORMING PART OF NAVIGATIONAL WATCH-PASCAL.jpg">View</button>
+                </td>
+              </tr>  
             </tr>
             <!-- Add similar rows for other certificates -->
           </tbody>
@@ -452,27 +506,37 @@
         <!-- Add a button for downloading all certificates -->
         <div class="text-center mt-4">
           <button id="downloadButton" class="btn btn-success">Download All Certificates</button>
-        </div>
+          <span id="loadingText" style="display: none; margin-left: 10px; color: green;">Downloading...</span>
+      </div>
+      
         
         <script>
-          document.getElementById('downloadButton').addEventListener('click', () => {
-            const files = [
-              'all-certificates1.zip',
-              'all-certificates2.zip'
+         document.getElementById('downloadButton').addEventListener('click', () => {
+    const files = [
+        'certificates-package1.zip',
+        'certificates-package2.zip'
             ];
-        
-            // Use a delay to ensure both downloads trigger properly
-            files.forEach((file, index) => {
-              setTimeout(() => {
-                const link = document.createElement('a');
-                link.href = file;
-                link.download = file.split('/').pop();
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }, index * 500); // 500ms delay between downloads
-            });
-          });
+    document.getElementById('loadingText').style.display = 'inline';
+
+    files.forEach((file, index) => {
+        setTimeout(() => {
+            const link = document.createElement('a');
+            link.href = file;
+            link.download = file.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Hide loading text after last download
+            if (index === files.length - 1) {
+                setTimeout(() => {
+                    document.getElementById('loadingText').style.display = 'none';
+                }, 2000);
+            }
+        }, index * 1000);
+    });
+});
+
         </script>
         
     <!-- Modal -->
